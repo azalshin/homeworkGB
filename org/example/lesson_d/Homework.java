@@ -65,9 +65,11 @@ public class Homework {
     private static void aiMove () {
         int x;
         int y;
-
-        x = random.nextInt(fieldSizeX);
-        y = random.nextInt(fieldSizeY);
+        do {
+            x = random.nextInt(fieldSizeX);
+            y = random.nextInt(fieldSizeY);
+        }
+        while (!outOfField(y, x) || !emptyCell(y,x));
         gameField[y][x] = DOT_AI;
     }
 
